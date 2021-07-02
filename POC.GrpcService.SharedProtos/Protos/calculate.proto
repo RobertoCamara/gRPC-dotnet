@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "POC.GrpcService";
+
+package calc;
+
+service Calculate {  
+  rpc Operation (OperationRequest) returns (OperationReply);
+}
+
+// The request message containing the user's name.
+message OperationRequest {
+  double num1 = 1;
+  double num2 = 2;
+  int32 typeOperation = 3;
+}
+
+// The response message containing the greetings.
+message OperationReply {
+  double message = 1;
+  string error = 2;
+}
