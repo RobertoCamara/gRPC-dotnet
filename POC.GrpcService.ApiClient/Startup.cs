@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
 using POC.GrpcService.ApiClient.Services;
 using System;
 
@@ -22,11 +23,16 @@ namespace POC.GrpcService.ApiClient
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+                });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "POC.GrpcService.ApiClient", Version = "v1" });
-            });
+            }).AddSwaggerGenNewtonsoftSupport();
 
             services.AddScoped<IGreeterService, GreeterService>();
             services.AddScoped<ICalculatorService, CalculatorService>();
@@ -39,8 +45,7 @@ namespace POC.GrpcService.ApiClient
 
             services.AddGrpcClient<Greeter.GreeterClient>((services, options) =>
             {
-                var greeterApi = "https://localhost:5001";
-                //var greeterApi = "http://127.0.0.1:50051";
+                var greeterApi = "https://localhost:5001";                
                 options.Address = new Uri(greeterApi);
             });
 

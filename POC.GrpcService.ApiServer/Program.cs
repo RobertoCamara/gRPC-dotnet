@@ -26,17 +26,18 @@ namespace POC.GrpcService.ApiServer
             {
                 webBuilder.ConfigureKestrel(options =>
                 {
+                    //TODO: não funcionou no docker
                     //options.ConfigureHttpsDefaults(https =>
                     //{
                     //    https.ServerCertificate = new X509Certificate2();
-                    //    //https.ServerCertificate = new X509Certificate2(fileName: @"C:\Users\rober\.aspnet\https\core5-website.pfx", password: "teste");
+                    //    //https.ServerCertificate = new X509Certificate2(fileName: @"C:\Users\rober\.aspnet\https\grpc-server.pfx", password: "grpc");
                     //});
 
                     options.Listen(IPAddress.Any, 5001, listenOptions =>
                     {
-                        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;                        
-                        listenOptions.UseHttps("grpc.pfx", "grpc");                        
-                    });                    
+                        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
+                        listenOptions.UseHttps("grpc-server.pfx", "grpc");
+                    });
                 });
                 webBuilder.UseStartup<Startup>();
             });

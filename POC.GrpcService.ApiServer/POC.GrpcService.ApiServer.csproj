@@ -15,4 +15,10 @@
     <ProjectReference Include="..\POC.GrpcService.SharedProtos\POC.GrpcService.SharedProtos.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="grpc-server.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

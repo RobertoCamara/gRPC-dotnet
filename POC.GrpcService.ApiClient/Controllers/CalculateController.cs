@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace POC.GrpcService.ApiClient.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CalculateController : ControllerBase
     {
         private readonly ICalculatorService _calculatorService;
