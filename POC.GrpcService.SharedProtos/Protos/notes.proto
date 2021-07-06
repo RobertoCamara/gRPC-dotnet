@@ -1,14 +1,16 @@
 // notes.proto
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 //services
 service NoteService {
-    rpc List (Void) returns (NoteListResponse);
+    rpc List (google.protobuf.Empty) returns (NoteListResponse);
     rpc Find (NoteFindRequest) returns (NoteFindResponse);
 }
 
 //entities
-message Void {}
+//message Void {}
 
 message Note {
     int32 id = 1;

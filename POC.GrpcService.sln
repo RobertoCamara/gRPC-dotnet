@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.GrpcService.ApiServer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "POC.GrpcService.SharedProtos", "POC.GrpcService.SharedProtos\POC.GrpcService.SharedProtos.csproj", "{2B6F081B-CC85-4CFA-B4D0-E37091E31171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientFromNodeServer.Console", "ClientFromNodeServer.Console\ClientFromNodeServer.Console.csproj", "{5B011F3C-D146-4D53-9CB4-88654898A56C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientFromNodeServer.Console", "ClientFromNodeServer.Console\ClientFromNodeServer.Console.csproj", "{5B011F3C-D146-4D53-9CB4-88654898A56C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

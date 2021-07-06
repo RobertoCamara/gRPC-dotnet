@@ -24,7 +24,7 @@ namespace POC.GrpcService.ApiClient.Services
 
         public async Task<NoteListResponse> List()
         {
-            return await _client.ListAsync(new Void());
+            return await _client.ListAsync(new Google.Protobuf.WellKnownTypes.Empty());
         }
     }
 }

@@ -9,11 +9,10 @@ namespace ClientFromNodeServer.Console
     {
         static async Task Main(string[] args)
         {
-            // The port number(5001) must match the port of the gRPC server.
             using var channel = GrpcChannel.ForAddress("http://localhost:50051");
             var client = new NoteService.NoteServiceClient(channel);
 
-            var reply = await client.ListAsync(new Void());
+            var reply = await client.ListAsync(new Google.Protobuf.WellKnownTypes.Empty());
 
             foreach (var note in reply.Notes)
             {
