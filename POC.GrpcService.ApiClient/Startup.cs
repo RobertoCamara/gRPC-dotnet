@@ -36,6 +36,7 @@ namespace POC.GrpcService.ApiClient
 
             services.AddScoped<IGreeterService, GreeterService>();
             services.AddScoped<ICalculatorService, CalculatorService>();
+            services.AddScoped<INoteServiceClient, NoteServiceClient>();
 
             services.AddGrpcClient<Calculate.CalculateClient>((services, options) =>
             {
@@ -49,7 +50,11 @@ namespace POC.GrpcService.ApiClient
                 options.Address = new Uri(greeterApi);
             });
 
-
+            services.AddGrpcClient<NoteService.NoteServiceClient>((services, options) =>
+            {
+                var noteApi = "http://localhost:50051";
+                options.Address = new Uri(noteApi);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
