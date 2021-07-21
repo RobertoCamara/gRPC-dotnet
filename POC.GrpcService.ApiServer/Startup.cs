@@ -41,6 +41,7 @@ namespace POC.GrpcService.ApiServer
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<NoteNetCoreService>();
                 endpoints.MapGrpcService<CalculateService>()
                          .EnableGrpcWeb()
                          .RequireCors("AllowAll");
