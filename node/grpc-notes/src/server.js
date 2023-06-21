@@ -12,6 +12,7 @@ const notes = [
   { id: 4, title: 'Note 4', description: 'Content 4' },
   { id: 5, title: 'Note 5', description: 'Content 5' },
   { id: 6, title: 'Note 6', description: 'Content 6' },
+  { id: 7, title: 'Note 7', description: 'Content 7' }
 ]
 
 function List (_, callback) {
